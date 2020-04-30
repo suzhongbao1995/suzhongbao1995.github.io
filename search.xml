@@ -13,7 +13,7 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> Vue </category>
           
       </categories>
       
@@ -21,6 +21,31 @@
         <tags>
             
             <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git 的相关操作</title>
+      <link href="/2019/05/29/20200530/"/>
+      <url>/2019/05/29/20200530/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="git仓库"><a href="#git仓库" class="headerlink" title="git仓库"></a>git仓库</h3><p>工作区 —&gt; 暂缓区 —&gt; 版本库 —&gt; 远程仓库</p><hr><h3 id="我们在开发项目中经常会用到的几个命令"><a href="#我们在开发项目中经常会用到的几个命令" class="headerlink" title="我们在开发项目中经常会用到的几个命令"></a>我们在开发项目中经常会用到的几个命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git init 创建版本库</span><br><span class="line"></span><br><span class="line">git config 设置用户名和邮箱</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &#39;提交的注释&#39;</span><br><span class="line">&#96;&#96;</span><br></pre></td></tr></table></figure><hr><h3 id="查看相关的操作"><a href="#查看相关的操作" class="headerlink" title="查看相关的操作"></a>查看相关的操作</h3><p><font face="PingFang SC" color=red><strong>场景1</strong> 查看当前 文件的状态(红色为修改为add 绿色为add未commit)</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure><p><font face="PingFang SC" color=red><strong>场景2</strong> 对比两次文件的修改</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure><p><font face="PingFang SC" color=red><strong>场景3</strong> 查看提交的日志对应的hash值</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line">git log --oneline --graph --decorate --all(查看树形分支 --- 通过这个查看rebase的前后差异)</span><br></pre></td></tr></table></figure><hr><h3 id="修改相关的操作"><a href="#修改相关的操作" class="headerlink" title="修改相关的操作"></a>修改相关的操作</h3><p><font face="PingFang SC" color=red><strong>场景1</strong> 当你修改代码时，写了一个很多很多的代码,突然想回到之前的代码状态</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout filename</span><br></pre></td></tr></table></figure><p><font face="PingFang SC" color=red><strong>场景2</strong> 修改完代码了，放到缓冲区了，然后想把它从缓冲区当中清除</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD  filename</span><br></pre></td></tr></table></figure><p><font face="PingFang SC" color=red><strong>场景3</strong> 解决由于主机由于物理删除导致版本库未删除的情况</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm</span><br><span class="line">git rm --cached your-file(撤销添加到暂存区)</span><br></pre></td></tr></table></figure><p><font face="PingFang SC" color=red><strong>场景4</strong> 将当前环境储存起来，不会和即将的环境冲突</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br><span class="line">git stash list</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure><p><font face="PingFang SC" color=red><strong>场景5</strong> 对仓库里的文件进行改名</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mv oldFile newFile</span><br></pre></td></tr></table></figure><p><font face="PingFang SC" color=red><strong>场景6</strong> 版本回退</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft HEAD^(撤销最后一次的git commit)</span><br><span class="line">git reset --hard HEAD^(返回上一个版本)</span><br><span class="line">git reset --hard hash 退回到某一个版本</span><br></pre></td></tr></table></figure><hr><div class="hide-block"><a class="hide-button button--primary button--animated" style="">其他操作    </a><span class="hide-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b 创建新分支并切换到新分支</span><br><span class="line">git tag 当前版本的标签(查看当前的版本)</span><br><span class="line">git checkout tag(修复某一个版本出现bug时)</span><br><span class="line">git checkout tags&#x2F;v1.2((修复某一个版本出现bug时，当本地有个分支和tags版本号名字相同时需要时声明那个分支))</span><br><span class="line">git checkout -b 分支名 hash值(创建一个分支在某次提交位置)</span><br><span class="line">git branch -D 分支名(删除本地分支)</span><br><span class="line">git fetch 新的分支被推到了我们的远程存储库，获取更改而不将其与本地存储库合并</span><br></pre></td></tr></table></figure></span></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
             
         </tags>
       
