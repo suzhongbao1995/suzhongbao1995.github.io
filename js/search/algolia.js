@@ -70,7 +70,7 @@ $(function () {
         item: function (data) {
           var link = data.permalink ? data.permalink : (GLOBAL_CONFIG.root + data.path)
           return (
-            '<a href="' + link + '" class="algolia-hit-item-link">' +
+            '<a href="' + link + '" class="algolia-hit-item-links">' +
             data._highlightResult.title.value +
             '</a>'
           )

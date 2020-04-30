@@ -378,9 +378,9 @@ $(function () {
   if (GLOBAL_CONFIG.isPhotoFigcaption) addPhotoFigcaption()
 
   /**
-   * justified-gallery 圖庫排版
+   * justified-gallerys 圖庫排版
    */
-  var $justifiedGallery = $('.justified-gallery')
+  var $justifiedGallery = $('.justified-gallerys')
   var isJustifiedGallery = false
   if ($justifiedGallery.length) {
     isJustifiedGallery = true
@@ -392,7 +392,7 @@ $(function () {
         $(o).wrap('<div></div>')
       })
     }
-    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css">')
+    $('head').append('<links rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css">')
     loadScript('https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js', function () {
       initJustifiedGallery($justifiedGallery)
     })
@@ -416,7 +416,7 @@ $(function () {
   var isMediumZoom = GLOBAL_CONFIG.medium_zoom
   var isFancybox = GLOBAL_CONFIG.fancybox
   if (isFancybox) {
-    var images = $('#article-container img:not(.gallery-group-img)').not($('a>img'))
+    var images = $('#article-container img:not(.gallerys-group-img)').not($('a>img'))
     images.each(function (i, o) {
       var lazyloadSrc = $(o).attr('data-src') ? $(o).attr('data-src') : $(o).attr('src')
       $(o).wrap(
@@ -500,7 +500,7 @@ $(function () {
     }, 100))
 
     // scroll
-    $('.toc-link').on('click', function (e) {
+    $('.toc-links').on('click', function (e) {
       if (window.innerWidth <= 1024) {
         closeMobileSidebar('toc')
       } else {
@@ -541,11 +541,11 @@ $(function () {
     // find head position & add active class
     // DOM Hierarchy:
     // ol.toc > (li.toc-item, ...)
-    // li.toc-item > (a.toc-link, ol.toc-child > (li.toc-item, ...))
+    // li.toc-item > (a.toc-links, ol.toc-child > (li.toc-item, ...))
     var findHeadPosition = function (top) {
-    // assume that we are not in the post page if no TOC link be found,
+    // assume that we are not in the post page if no TOC links be found,
     // thus no need to update the status
-      if ($('.toc-link').length === 0) {
+      if ($('.toc-links').length === 0) {
         return false
       }
 
@@ -559,17 +559,17 @@ $(function () {
       })
 
       if (currentId === '') {
-        $('.toc-link').removeClass('active')
+        $('.toc-links').removeClass('active')
         $('.toc-child').hide()
       }
 
-      var currentActive = $('.toc-link.active')
+      var currentActive = $('.toc-links.active')
       if (currentId && currentActive.attr('href') !== currentId) {
         updateAnchor(currentId)
 
-        $('.toc-link').removeClass('active')
+        $('.toc-links').removeClass('active')
 
-        var _this = $('.toc-link[href="' + currentId + '"]')
+        var _this = $('.toc-links[href="' + currentId + '"]')
         _this.addClass('active')
 
         var parents = _this.parents('.toc-child')
@@ -588,7 +588,7 @@ $(function () {
     }
 
     var autoScrollToc = function (currentTop) {
-      if ($('.toc-link').hasClass('active')) {
+      if ($('.toc-links').hasClass('active')) {
         var activePosition = $('.active').offset().top
         var sidebarScrolltop = $('#sidebar .sidebar-toc__content').scrollTop()
         if (activePosition > (currentTop + $(window).height() - 100)) {
@@ -767,8 +767,8 @@ $(function () {
       $this.toggleClass('open')
       $hideContent.toggle()
       if ($this.hasClass('open')) {
-        if (isJustifiedGallery && $hideContent.find('.justified-gallery').length > 0) {
-          initJustifiedGallery($hideContent.find('.justified-gallery'))
+        if (isJustifiedGallery && $hideContent.find('.justified-gallerys').length > 0) {
+          initJustifiedGallery($hideContent.find('.justified-gallerys'))
         }
       }
     })
