@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>dva的简单使用</title>
+      <link href="/2020/06/20/20200620/"/>
+      <url>/2020/06/20/20200620/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="dva简介"><a href="#dva简介" class="headerlink" title="dva简介"></a>dva简介</h2><pre><code>拿出dva官网给出的简介 ---dva 首先是一个基于 redux 和 redux-saga 的数据流方案，然后为了简化开发体验，dva 还额外内置了 react-router 和 fetch，所以也可以理解为一个轻量级的应用框架。</code></pre><h2 id="dva的在项目中的使用"><a href="#dva的在项目中的使用" class="headerlink" title="dva的在项目中的使用"></a>dva的在项目中的使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">首先我们会创建一个modal.js的文件来存放我们要共享的数据</span><br><span class="line">export default &#123;</span><br><span class="line">    namespace: &#39;Modal&#39;</span><br><span class="line">    state: &#123;</span><br><span class="line">        count: 0</span><br><span class="line">    &#125;</span><br><span class="line">    reducer：&#123;</span><br><span class="line">        changeCount(state, &#123;payload&#125;)&#123;</span><br><span class="line">            ...state,</span><br><span class="line">            count: payload</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    effects: &#123;</span><br><span class="line">        &#x2F;&#x2F; 当前定义的方法如果经过多次触发会取最后一次dispatch</span><br><span class="line">        changeCount:[*function(&#123;payload&#125;, &#123;call, select, put&#125;)&#123; &#39;TODO&#39;&#125;, &#123; type: &#39;takeLatest&#39; &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>namespace: model 的命名空间，同时也是他在全局 state 上的属性，只能用字符串，不支持通过 . 的方式创建多层命名空间<br>state: 我们共享数据的初始值<br>reducers：以 key/value 格式定义 reducer。用于处理同步操作，唯一可以修改 state 的地方<br>effects：用于处理异步操作和业务逻辑，不直接修改 state。由 action 触发，可以触发 action，可以和服务器交互，可以获取全局 state 的数据等等。<br>[*(action, effects) =&gt; void, { type }] 这是effects为我们提供的几种类型  takeLatest throttle 这两种类型分别是多次相同的dispatch会合并成一个<br>而 throttle显而易见是节流防抖</p><h2 id="组件中使用"><a href="#组件中使用" class="headerlink" title="组件中使用"></a>组件中使用</h2><pre><code>function Component ({ count, dispatch}) {    const changeCount (payload) {        dispatch({            type: &apos;namespace/changeCount&apos;,             payload        })    }    return (        &lt;div&gt;修改状态&lt;/div&gt;    )}export default connect(({namespace}) =&gt; ({count}))(Component)</code></pre><h2 id="effects-处理"><a href="#effects-处理" class="headerlink" title="effects 处理"></a>effects 处理</h2><p>简单封装一个请求接口的方法<br>  async function getData(data) {<br>       return request(“queryFromApi”, {<br>           data,<br>           method: “post”,<br>           dataType: “payload”<br>       })<br>   }</p><pre><code>namespace: &apos;Modal&apos;,state: {    count: 0},effects: {  * query({ payload }, { call, put }){+       const { data } = yield call (getData, payload)       if(data){           yield put({               type: &apos;querySuccess&apos;,               payload: data           })       }          },   * create(){},   * remove(){},   * update(){}},reducers: {   querySuccess(state, {payload}){       return {           ...state           count: payload       }   }       }</code></pre><p>请求数据时候，发起异步请求，请求到数据之后，通过调用 reducers更新state。<br>dva 通过对 model 增加 effects 属性来处理异步任务，这是基于 redux-saga 实现的，<br>语法为 generator。Generator 返回的是迭代器，通过 yield 关键字实现暂停功能。<br>并触发一个Api调用以获取服务器数据。当每个action被发起时调用 call 和 put 都是 redux-saga 的 effects，call 表示调用异步函数，<br>put 表示 dispatch action，其他的还有 select, take, fork, cancel 等，select 则可以用来访问其它 model</p><h2 id="dva使用总结"><a href="#dva使用总结" class="headerlink" title="dva使用总结"></a>dva使用总结</h2><p>  dva将所有与数据操作相关的逻辑集中放在一个地方处理和维护，在数据跟业务状态交互比较紧密的场景下，会使我们的代码更加清晰可控。<br>  写react的小伙伴可能知道antd的表单会通过Form.create()创建注入form表单当我们实现表单联动的时候，动态的增加删除表单的时候，可以试着将注入value和onChange的逻辑拿到redux中处理<br>  这样我们只关注开头和结尾的处理即可！<br>  由于要进行大量的数据操作，在设计model时将不同类型的业务需求数据操作分开处理，也达到了便于维护的目的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> react </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> react </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>node通过formidable上传图片模块功能实现</title>
       <link href="/2020/05/18/20200518/"/>
       <url>/2020/05/18/20200518/</url>
