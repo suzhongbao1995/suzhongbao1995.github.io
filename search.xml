@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>webpack</title>
+      <link href="/2020/07/30/20200730/"/>
+      <url>/2020/07/30/20200730/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="webpack-的搭建"><a href="#webpack-的搭建" class="headerlink" title="webpack 的搭建"></a>webpack 的搭建</h1><p>webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundle)。当 webpack 处理应用程序时，<br>它会递归地构建一个依赖关系图(dependency graph)，<br>其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle</p><h1 id="webpack的五个核心"><a href="#webpack的五个核心" class="headerlink" title="webpack的五个核心"></a>webpack的五个核心</h1><ul><li><p>1、入口(entry)</p><blockquote><p>单入口(SPA): 如果传入一个字符串或者字符串数组， chunk会被命名为main<br>多入口(MPA)：如果传入一个对象，那么每个对象的key会是chunk的名称</p></blockquote></li><li><p>2、出口(output)</p></li><li><p>3、模式(mode)</p></li><li><p>4、插件(plugins)</p></li><li><p>5、loader</p></li></ul><h1 id="source-map"><a href="#source-map" class="headerlink" title="source map"></a>source map</h1><p>  <em>source map的几种风格、开发模式下配置devtool: source-map，生产模式不建议。</em></p><ul><li><p>eval: 构建速度最快、但是并不能显示对用错误代码行数</p></li><li><p>eval-source-map: 初始化source map 会较慢，但是重新构建是提供比较快的速度，并且生成实际的文件，能够正常映射实际的原始代码，所以相比其他是是开发环境最优的选择</p></li><li><p>eval-cheap-source-map: 类似eval-source-map 是低开销的source map 因为没有生成列映射，只是映射了行树。会忽略源自loader的source map 并且仅显示转译后的代码。</p></li><li><p>eval-cheap-module-source-map: loader的source map 会得到更好的处理结果。loader source map会被简化成每行一个映射（mapping）</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> webpack </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webpack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>dva的简单使用</title>
       <link href="/2020/06/20/20200620/"/>
       <url>/2020/06/20/20200620/</url>
