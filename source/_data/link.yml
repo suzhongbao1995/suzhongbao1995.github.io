@@ -1,0 +1,8 @@
+class:
+  class_name: 友情链接
+  link_list:
+    1:
+      name: 简书
+      link: https://www.jianshu.com/u/8de2aee6823f
+      avatar: https://upload.jianshu.io/users/upload_avatars/19663203/44c8ba9f-8373-40fe-ae67-e046b347201a?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240
+      descr: 创作你的创作
