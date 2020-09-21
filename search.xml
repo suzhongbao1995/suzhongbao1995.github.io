@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Vue原理解析：Vue 实例如何实现代理 data 对象属性的访问</title>
+      <link href="/2020/09/21/20200921/"/>
+      <url>/2020/09/21/20200921/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Vue原理解析：Vue-实例如何实现代理-data-对象属性的访问"><a href="#Vue原理解析：Vue-实例如何实现代理-data-对象属性的访问" class="headerlink" title="Vue原理解析：Vue 实例如何实现代理 data 对象属性的访问"></a>Vue原理解析：Vue 实例如何实现代理 data 对象属性的访问</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MobX </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MobX</title>
       <link href="/2020/08/05/20200804/"/>
       <url>/2020/08/05/20200804/</url>
