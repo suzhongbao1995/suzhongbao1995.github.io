@@ -101,16 +101,16 @@ deploy:
   type: git
   repo: git@github.com:suzhongbao1995/suzhongbao1995.github.io.git
 
-douban:
-  user: https://www.douban.com/people/216078395/
-  builtin: true
-  book:
-    title: 'book'
-    quote: '书读百遍 其义自见'
-  movie:
-    title: 'movies'
-    quote: '电影演的是生活么'
-  timeout: 10000
+#douban:
+#  user: https://www.douban.com/people/216078395/
+#  builtin: true
+#  book:
+#    title: 'book'
+#    quote: '书读百遍 其义自见'
+#  movie:
+#    title: 'movies'
+#    quote: '电影演的是生活么'
+#  timeout: 10000
 
   ## live2d
 #  live2d:
