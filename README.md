@@ -1,0 +1,1 @@
+部署流程： 切到master分支 写对应的博客 然后npm run clean 然后 npm run deploy 最后切换到dev分支保存源码
