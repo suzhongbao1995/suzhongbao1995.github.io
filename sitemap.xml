@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/cn/20201010/</loc>
+    <loc>http://yoursite-url/cn/20200921/</loc>
     
     <lastmod>2020-10-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite-url/cn/20200921/</loc>
+    <loc>http://yoursite-url/cn/20201010/</loc>
     
     <lastmod>2020-10-10</lastmod>
     
@@ -117,13 +117,6 @@
     <loc>http://yoursite-url/cn/20200501/</loc>
     
     <lastmod>2020-04-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/cn/20200430/</loc>
-    
-    <lastmod>2020-04-29</lastmod>
     
   </url>
   
@@ -172,13 +165,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/Git/</loc>
-    <lastmod>2022-01-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite-url/tags/ES6/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
@@ -187,13 +173,6 @@
   
   <url>
     <loc>http://yoursite-url/tags/node/</loc>
-    <lastmod>2022-01-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/tags/react/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -214,6 +193,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite-url/tags/react/</loc>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/tags/axios/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
@@ -221,14 +207,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/TypeScript/</loc>
+    <loc>http://yoursite-url/tags/fetch/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/fetch/</loc>
+    <loc>http://yoursite-url/tags/TypeScript/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -258,13 +244,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/git/</loc>
-    <lastmod>2022-01-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite-url/categories/ES6/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
@@ -273,13 +252,6 @@
   
   <url>
     <loc>http://yoursite-url/categories/node/</loc>
-    <lastmod>2022-01-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/categories/react/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -300,6 +272,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite-url/categories/react/</loc>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/categories/axios/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
@@ -307,14 +286,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/TypeScript/</loc>
+    <loc>http://yoursite-url/categories/fetch/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/fetch/</loc>
+    <loc>http://yoursite-url/categories/TypeScript/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
